@@ -39,6 +39,7 @@
 #include "MKL25Z4.h"
 
 /* TODO: insert other include files here. */
+#include "app_GPIO.h"
 
 /* TODO: insert other definitions and declarations here. */
 
@@ -48,17 +49,20 @@
 int main(void) {
   	/* Init board hardware. */
     BOARD_InitBootPins();
-    BOARD_InitBootClocks();
+    BOARD_BootClockRUN();
   	/* Init FSL debug console. */
 	BOARD_InitDebugConsole();
 
     printf("Hello World\n");
+
+    app_GPIO_Init();
 
     /* Force the counter to be placed into memory. */
     volatile static int i = 0 ;
     /* Enter an infinite loop, just incrementing a counter. */
     while(1) {
         i++ ;
+        app_GPIO_GetPinValue(GPIOC, 9U);
     }
     return 0 ;
 }
