@@ -8,6 +8,7 @@
 #ifndef STDTYPEDEF_H_
 #define STDTYPEDEF_H_
 
+#define KINETIS_KL25Z
 
 typedef unsigned char 	T_UBYTE;
 typedef unsigned short 	T_UWORD;

@@ -37,6 +37,7 @@
 #include "pin_mux.h"
 #include "clock_config.h"
 #include "MKL25Z4.h"
+#include "app_BtnDbnc.h"
 
 /* TODO: insert other include files here. */
 #include "app_GPIO.h"
@@ -46,7 +47,8 @@
 /*
  * @brief   Application entry point.
  */
-int main(void) {
+int main(void)
+{
   	/* Init board hardware. */
     BOARD_InitBootPins();
     BOARD_BootClockRUN();
@@ -55,14 +57,17 @@ int main(void) {
 
     printf("Hello World\n");
 
+    /* GPIO Module Init */
     app_GPIO_Init();
+    /* Button Debounce Module */
+    app_BtnDbnc_TaskMngr();
 
     /* Force the counter to be placed into memory. */
     volatile static int i = 0 ;
     /* Enter an infinite loop, just incrementing a counter. */
     while(1) {
         i++ ;
-        app_GPIO_GetPinValue(GPIOC, 9U);
+        app_BtnDbnc_TaskMngr();
     }
     return 0 ;
 }
