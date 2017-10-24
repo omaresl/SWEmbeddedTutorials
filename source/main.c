@@ -37,11 +37,11 @@
 #include "pin_mux.h"
 #include "clock_config.h"
 #include "MKL25Z4.h"
-#include "app_BtnDbnc.h"
 
 /* TODO: insert other include files here. */
-#include "app_GPIO.h"
+#include "app_Init.h"
 #include "app_PIT.h"
+#include "app_BtnDbnc.h"
 #include "app_LED.h"
 
 /* TODO: insert other definitions and declarations here. */
@@ -59,14 +59,8 @@ int main(void)
 
     printf("SW Embedded Tutorials\n");
 
-    /* PIT Module Init */
-    app_PIT_Init();
-
-    /* GPIO Module Init */
-    app_GPIO_Init();
-
-    /* Button Debounce App Init */
-    app_BtnDbnc_Init();
+    /* Initialization App */
+    app_Init();
 
     //Infinite Loop
     for(;;)

@@ -1,5 +1,5 @@
 /*
- * app_LED.c
+ * app_Init.c
  *
  *  Created on: 23/10/2017
  *      Author: uidj2522
@@ -8,9 +8,10 @@
 /******************************************
  * Includes
  ******************************************/
-#include "MKL25Z4.h"
-#include "stdtypedef.h"
-#include "app_LED.h"
+#include "app_Init.h"
+#include "app_GPIO.h"
+#include "app_BtnDbnc.h"
+#include "app_PIT.h"
 
 /******************************************
  * Defines
@@ -19,7 +20,6 @@
 /******************************************
  * Variables
  ******************************************/
-static T_UBYTE rub_LEDTaskCounter = 0U;
 
 /******************************************
  * Prototypes
@@ -30,23 +30,17 @@ static T_UBYTE rub_LEDTaskCounter = 0U;
  ******************************************/
 
 /***********************************************
- * Function Name: app_LED_Task
+ * Function Name: app_Init
  * Description: TBD
  ***********************************************/
-void app_LED_Task(void)
+void app_Init(void)
 {
-	/* Check if the task has been called 100 times since last execution */
-	if(rub_LEDTaskCounter >= 100U)
-	{//100 times passed already
-		/* Clear Counter */
-		rub_LEDTaskCounter = 0U;
+    /* PIT Module Init */
+    app_PIT_Init();
 
-		/* LED Toggle */
-		LED_RED_TOGGLE();
-	}
-	else
-	{//100 times not passed yet
-		/* Increase Counter */
-		rub_LEDTaskCounter++;
-	}
+    /* GPIO Module Init */
+    app_GPIO_Init();
+
+    /* Button Debounce App Init */
+    app_BtnDbnc_Init();
 }
