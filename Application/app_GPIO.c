@@ -34,6 +34,7 @@ void app_GPIO_Init(void)
 
 	PORT_SetPinConfig(PORTC, 9U, lps_PinConfig);
 	PORT_SetPinConfig(PORTC, 8U, lps_PinConfig);
+	PORT_SetPinConfig(PORTB, 18U, lps_PinConfig);
 	PORT_SetPinConfig(PORTB, 19U, lps_PinConfig);
 	PORT_SetPinConfig(PORTD, 1U, lps_PinConfig);
 
@@ -55,6 +56,7 @@ void app_GPIO_Init(void)
 
 	ls_GPIOPinConfig.pinDirection = kGPIO_DigitalOutput;
 	ls_GPIOPinConfig.outputLogic = TRUE; //LEDs Off
+	GPIO_PinInit(GPIOB, 18U, lps_GPIOPinConfig);
 	GPIO_PinInit(GPIOB, 19U, lps_GPIOPinConfig);
 	GPIO_PinInit(GPIOD, 1U, lps_GPIOPinConfig);
 

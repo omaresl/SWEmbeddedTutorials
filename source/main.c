@@ -41,6 +41,8 @@
 
 /* TODO: insert other include files here. */
 #include "app_GPIO.h"
+#include "app_PIT.h"
+#include "app_LED.h"
 
 /* TODO: insert other definitions and declarations here. */
 
@@ -55,19 +57,36 @@ int main(void)
   	/* Init FSL debug console. */
 	BOARD_InitDebugConsole();
 
-    printf("Hello World\n");
+    printf("SW Embedded Tutorials\n");
+
+    /* PIT Module Init */
+    app_PIT_Init();
 
     /* GPIO Module Init */
     app_GPIO_Init();
-    /* Button Debounce Module */
-    app_BtnDbnc_TaskMngr();
 
-    /* Force the counter to be placed into memory. */
-    volatile static int i = 0 ;
-    /* Enter an infinite loop, just incrementing a counter. */
-    while(1) {
-        i++ ;
-        app_BtnDbnc_TaskMngr();
+    /* Button Debounce App Init */
+    app_BtnDbnc_Init();
+
+    //Infinite Loop
+    for(;;)
+    {
+    	/* Functions Executed Every Loop */
+    	app_BtnDbnc_TaskMngr();
+
+    	if(rub_PITAlarm == TRUE)
+    	{
+    		/* Clear the Alarm */
+    		rub_PITAlarm = FALSE;
+
+    		/* Functions Called when the timer expires */
+    		//Every 1 ms
+    		app_LED_Task();
+    	}
+    	else
+    	{
+    		/* Do Nothing */
+    	}
     }
     return 0 ;
 }

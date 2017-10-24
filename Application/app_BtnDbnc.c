@@ -42,6 +42,10 @@ static void app_BtnDbnc_IncreaseDbncCounter(T_UBYTE lub_ButtonNumber);
 static void app_BtnDbnc_ClearDbncCounter(T_UBYTE lub_ButtonNumber);
 static void app_BtnDbnc_Actions();
 
+/******************************************
+ * Code
+ ******************************************/
+
 /***********************************************
  * Function Name: app_BtnDbnc_Init
  * Description: TBD

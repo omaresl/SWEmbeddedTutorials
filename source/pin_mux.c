@@ -63,10 +63,4 @@ void BOARD_InitBootPins(void) {
 			| SIM_SOPT5_UART0TXSRC(SOPT5_UART0TXSRC_UART_TX)       /* UART0 transmit data source select: UART0_TX pin */
 			| SIM_SOPT5_UART0RXSRC(SOPT5_UART0RXSRC_UART_RX)       /* UART0 receive data source select: UART0_RX pin */
 	);
-	SIM->SOPT5 = ((SIM->SOPT5 &
-			(~(SIM_SOPT5_UART1TXSRC_MASK | SIM_SOPT5_UART1RXSRC_MASK))) /* Mask bits to zero which are setting */
-			| SIM_SOPT5_UART1TXSRC(SOPT5_UART1TXSRC_UART_TX)       /* UART1 transmit data source select: UART1_TX pin */
-			| SIM_SOPT5_UART1RXSRC(SOPT5_UART1RXSRC_UART_RX)       /* UART1 receive data source select: UART1_RX pin */
-	);
-
 }
