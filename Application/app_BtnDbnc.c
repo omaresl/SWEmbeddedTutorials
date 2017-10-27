@@ -97,7 +97,7 @@ static void app_BtnDbnc_CheckButtonsState(void)
 static void app_BtnDbnc_IncreaseDbncCounter(T_UBYTE lub_ButtonNumber)
 {
 	/* Check if the counter hasn't reached its max limit */
-	if(raub_ButtonDbncCounters[lub_ButtonNumber] < APP_BTNDBNC_DBNC_VALID_COUNT)
+	if(raub_ButtonDbncCounters[lub_ButtonNumber] >= APP_BTNDBNC_DBNC_VALID_COUNT)
 	{//Counter is in the limit
 		/* Valid State */
 		rae_ButtonsState[lub_ButtonNumber] = BUTTON_PRESSED;
