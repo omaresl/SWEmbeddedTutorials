@@ -27,7 +27,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
- 
+
 /**
  * @file    MKL25Z128xxx4_Project.c
  * @brief   Application entry point.
@@ -51,36 +51,36 @@
  */
 int main(void)
 {
-  	/* Init board hardware. */
-    BOARD_InitBootPins();
-    BOARD_BootClockRUN();
-  	/* Init FSL debug console. */
+	/* Init board hardware. */
+	BOARD_InitBootPins();
+	BOARD_BootClockRUN();
+	/* Init FSL debug console. */
 	BOARD_InitDebugConsole();
 
-    printf("SW Embedded Tutorials\n");
+	printf("SW Embedded Tutorials\n");
 
-    /* Initialization App */
-    app_Init();
+	/* Initialization App */
+	app_Init();
 
-    //Infinite Loop
-    for(;;)
-    {
-    	/* Functions Executed Every Loop */
-    	app_BtnDbnc_TaskMngr();
+	//Infinite Loop
+	for(;;)
+	{
+		if(rub_PITAlarm == TRUE)
+		{
+			/* Clear the Alarm */
+			rub_PITAlarm = FALSE;
 
-    	if(rub_PITAlarm == TRUE)
-    	{
-    		/* Clear the Alarm */
-    		rub_PITAlarm = FALSE;
+			/* Functions Executed Every Loop */
+			app_BtnDbnc_TaskMngr();
 
-    		/* Functions Called when the timer expires */
-    		//Every 1 ms
-    		app_LED_Task();
-    	}
-    	else
-    	{
-    		/* Do Nothing */
-    	}
-    }
-    return 0 ;
+			/* Functions Called when the timer expires */
+			//Every 1 ms
+			app_LED_Task();
+		}
+		else
+		{
+			/* Do Nothing */
+		}
+	}
+	return 0 ;
 }
