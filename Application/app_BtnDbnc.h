@@ -58,7 +58,7 @@ enum
 #define BUTTON_HW_PRESSED	FALSE
 #define BUTTON_HW_UNPRESSED	TRUE
 
-#define APP_BTNDBNC_DBNC_VALID_COUNT	((T_UBYTE)100U)
+#define APP_BTNDBNC_DBNC_VALID_COUNT	((T_UWORD)3000U)
 
 /******************************************
  * Variables

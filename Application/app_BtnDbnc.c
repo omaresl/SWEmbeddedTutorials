@@ -31,7 +31,7 @@ const GPIO_Type *cpub_ButtonGPIOBase[APP_BTNDBNC_N_BUTTONS] = {
 		APP_BTNDBNC_BUTTON1_PIN_GPIO_BASE
 };
 
-T_UBYTE	raub_ButtonDbncCounters[APP_BTNDBNC_N_BUTTONS];
+T_UWORD	raub_ButtonDbncCounters[APP_BTNDBNC_N_BUTTONS];
 T_BUTTON_STATES rae_ButtonsState[APP_BTNDBNC_N_BUTTONS];
 
 /******************************************
