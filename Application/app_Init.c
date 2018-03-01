@@ -12,6 +12,7 @@
 #include "app_GPIO.h"
 #include "app_BtnDbnc.h"
 #include "app_PIT.h"
+#include "app_DAC.h"
 
 /******************************************
  * Defines
@@ -41,6 +42,10 @@ void app_Init(void)
     /* GPIO Module Init */
     app_GPIO_Init();
 
+    /* DAC Module Init */
+    app_DAC_Init();
+
     /* Button Debounce App Init */
     app_BtnDbnc_Init();
+
 }
