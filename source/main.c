@@ -65,22 +65,7 @@ int main(void)
 	//Infinite Loop
 	for(;;)
 	{
-		if(rub_PITAlarm == TRUE)
-		{
-			/* Clear the Alarm */
-			rub_PITAlarm = FALSE;
-
-			/* Functions Executed Every Loop */
-			app_BtnDbnc_TaskMngr();
-
-			/* Functions Called when the timer expires */
-			//Every 1 ms
-			app_LED_Task();
-		}
-		else
-		{
-			/* Do Nothing */
-		}
+		OS_Sched_Core_Loop();
 	}
 	return 0 ;
 }
