@@ -9,7 +9,7 @@
  * Interfaces
  ******************************************/
 #include "OS_Sched_Tasks.h"
-#include "app_DAC.h"
+#include "app_ADC.h"
 
 
 /******************************************
@@ -29,5 +29,8 @@ void app_OS_Sched_Task_1tk(void)
 	//app_BtnDbnc_TaskMngr();
 
 	/* DAC Task */
-	app_DAC_TaskMngr();
+	//app_DAC_TaskMngr();
+
+	/* ADC Task */
+	app_ADC_Task();
 }

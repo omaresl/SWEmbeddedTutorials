@@ -13,6 +13,7 @@
 #include "app_BtnDbnc.h"
 #include "app_PIT.h"
 #include "app_DAC.h"
+#include "app_ADC.h"
 
 /******************************************
  * Defines
@@ -44,6 +45,9 @@ void app_Init(void)
 
     /* DAC Module Init */
     app_DAC_Init();
+
+    /* ADC Module Init */
+    app_ADC_Init();
 
     /* Button Debounce App Init */
     app_BtnDbnc_Init();
